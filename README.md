@@ -34,6 +34,16 @@ backdown dupes --min-size 10M                    # duplicated content, biggest s
 backdown serve                                   # browse it all in your web browser (from 0.2.0-alpha.2)
 ```
 
+On Linux, keep it running in the background (from 0.2.0-alpha.3): it rescans your drives daily and whenever one is plugged back in, hashes after every scan, and keeps the browser available.
+
+```sh
+backdown service install      # a systemd user service, no root needed
+backdown open                 # the browser, any time
+backdown service status
+```
+
+For a NAS or server, put the binary in `/usr/local/bin` and run `sudo backdown service install --system`: it runs as a `backdown` user that can read every file but write none, sandboxed by systemd with no network beyond the machine.
+
 `backdown serve` opens a local file browser (on this computer only): folders as they were at any scan via a time slider, every version and copy of a file, and read-only viewers for PDF, Word, SQLite, SQL dumps, code, images, audio/video, git history and diffs.
 
 BackDown only reads your drives. The one file it writes is its index database (`backdown.db` in the current folder, or `--db FILE`).
