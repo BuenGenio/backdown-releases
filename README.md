@@ -31,7 +31,10 @@ backdown index /media/old-drive /media/archive   # record every file (read-only)
 backdown check /media/old-drive                  # is it safe to wipe? exit 0 = yes, 2 = copy first
 backdown check /media/old-drive --list           # every file that exists nowhere else
 backdown dupes --min-size 10M                    # duplicated content, biggest savings first
+backdown serve                                   # browse it all in your web browser (from 0.2.0-alpha.2)
 ```
+
+`backdown serve` opens a local file browser (on this computer only): folders as they were at any scan via a time slider, every version and copy of a file, and read-only viewers for PDF, Word, SQLite, SQL dumps, code, images, audio/video, git history and diffs.
 
 BackDown only reads your drives. The one file it writes is its index database (`backdown.db` in the current folder, or `--db FILE`).
 
